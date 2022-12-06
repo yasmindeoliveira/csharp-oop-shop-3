@@ -20,7 +20,19 @@ namespace CSharpShop3
 
         public Acqua(string nome, string descrizione, float prezzo, int iva, double litri, double pH, string sorgente) : base(nome, descrizione, prezzo, iva)
         {
+            if (litri < 0)
+            {
+                throw new ResultCannotBeNegativeException("Non puoi inserire un valore di liri negativo.");
+            }
             this.litri = litri;
+            if (pH < 0)
+            {
+                throw new ResultCannotBeNegativeException("Non puoi inserire un pH negativo.");
+            }
+            if (pH > 14)
+            {
+                throw new OverflowException("Il pH non può superare il valore 14");
+            }
             this.pH = Math.Round(pH, 2);
             this.sorgente = sorgente;
             this.maxCapienza = 1.5;
@@ -40,11 +52,15 @@ namespace CSharpShop3
         {
             return this.sorgente;
         }
+        public double GetMaxCapienza()
+        {
+            return this.maxCapienza;
+        }
 
         // SETTERS
         public void SetLitri(double litri)
         {
-            if (this.litri < 0)
+            if (litri < 0)
             {
                 throw new ResultCannotBeNegativeException("Non puoi inserire un valore di liri negativo.");
             }
@@ -52,11 +68,11 @@ namespace CSharpShop3
         }
         public void SetPH(double pH)
         {
-            if (this.pH < 0)
+            if (pH < 0)
             {
                 throw new ResultCannotBeNegativeException("Non puoi inserire un pH negativo.");
             }
-            if(this.pH > 14)
+            if(pH > 14)
             {
                 throw new OverflowException("Il pH non può superare il valore 14");
             }

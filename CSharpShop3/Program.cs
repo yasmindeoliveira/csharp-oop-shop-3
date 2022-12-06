@@ -1,6 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CSharpShop3;
+using CSharpShop3.CustomException;
 
+try
+{
+    Acqua Bottiglia1 = new Acqua("Sant'Anna", "Acqua Minerale", 0.20f, 22, 1.5f, 15f, "Sant'Anna");
+    Bottiglia1.Stampa();
+
+}catch(ResultCannotBeNegativeException e)
+{
+    Console.WriteLine(e.Message);
+}catch(OverflowException e)
+{
+    Console.WriteLine(e.Message);
+}
+
+
+/*
 Acqua Bottiglia1 = new Acqua("Sant'Anna", "Acqua Minerale", 0.20f, 22, 1.5f, 6.9f, "Sant'Anna");
 Bottiglia1.Stampa();
 
@@ -24,3 +40,4 @@ Ananas.Stampa();
 
 Prodotto lavatriceBosch = new Prodotto("LavatriceBosch", "Per bucato", 100, 22);
 lavatriceBosch.Stampa();
+*/
