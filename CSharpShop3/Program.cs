@@ -13,6 +13,8 @@ try
     Bottiglia1.RiempiBottiglia(0.7f);
     Bottiglia1.Stampa();
 
+    Console.WriteLine("Contenuto in galloni: " + Acqua.DaLitriAGalloni(1.5));
+
 }
 catch(ResultCannotBeNegativeException e)
 {

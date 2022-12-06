@@ -141,15 +141,12 @@ namespace CSharpShop3
         }
 
         // METODO STATICO
-
-        public static class ConvertitoreLitri
+        public static double DaLitriAGalloni(double litri)
         {
-            public static double DaLitriAGalloni(double litri)
-            {
-                double galloni = (litri * 3.785);
-                return galloni;
-            }
+            double galloni = (litri * 3.785);
+            return galloni;
         }
+        
 
 
     }
