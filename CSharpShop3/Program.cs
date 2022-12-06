@@ -22,13 +22,34 @@ try
 catch(ResultCannotBeNegativeException e)
 {
     Console.WriteLine(e.Message);
-}catch(OverflowException e)
+}catch(OverRangeException e)
 {
     Console.WriteLine(e.Message);
 }
 
 Console.WriteLine("Totale prodotti: " + Prodotto.GetContatore());
 
+try
+{
+    FruttaAPezzi Ananas = new FruttaAPezzi("Ananas", "Bromeliaceae", "Frutta", 1.5f, 10, true);
+    Ananas.Stampa();
+
+    Ananas.MangiaFrutta(4);
+    Ananas.Stampa();
+
+    Ananas.RiempiSacchetto(2);
+    Ananas.Stampa();
+}
+catch (ResultCannotBeNegativeException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch (OverRangeException e)
+{
+    Console.WriteLine(e.Message);
+}
+
+Console.WriteLine("Totale prodotti: " + Prodotto.GetContatore());
 
 /*
 Acqua Bottiglia1 = new Acqua("Sant'Anna", "Acqua Minerale", 0.20f, 22, 1.5f, 6.9f, "Sant'Anna");

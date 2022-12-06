@@ -72,7 +72,7 @@ namespace CSharpShop3
             }
             else
             {
-                Console.WriteLine("Non puoi mangiare frutta che non c'è.");
+                throw new ResultCannotBeNegativeException("Non puoi mangiare frutta che non c'è.");
             }
 
             return this.quantita;
@@ -80,6 +80,10 @@ namespace CSharpShop3
 
         public void RiempiSacchetto(uint fruttaDaInserire)
         {
+            if (this.quantita + fruttaDaInserire > 5)
+            {
+                throw new OverRangeException("Non puoi avere più di 5 pezzi di frutta nel sacchetto.");
+            }
             this.quantita += fruttaDaInserire;
         }
 
