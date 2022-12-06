@@ -16,6 +16,7 @@ namespace CSharpShop3
         private string descrizione;
         private double prezzo;
         private int iva;
+        private static int contatore;
 
         // COSTRUTTORI
 
@@ -26,6 +27,7 @@ namespace CSharpShop3
             this.descrizione = descrizione;
             this.prezzo = prezzo;
             this.iva = iva;
+            contatore++;
         }
 
         // GETTERS
@@ -49,6 +51,10 @@ namespace CSharpShop3
         public int GetIVA()
         {
             return this.iva;
+        }
+        public static int GetContatore()
+        {
+            return contatore;
         }
 
         // SETTERS
@@ -116,15 +122,6 @@ namespace CSharpShop3
             return codiceNome;
         }
 
-        // METODO STATICO
-
-        public static class ConvertitoreLitri
-        {
-            public static double DaLitriAGalloni(double litri)
-            {
-                double galloni = (litri * 3.785);
-                return galloni;
-            }
-        }
+        
     }
 }

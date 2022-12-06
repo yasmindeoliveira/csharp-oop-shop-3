@@ -143,7 +143,8 @@ namespace CSharpShop3
         // METODO STATICO
         public static double DaLitriAGalloni(double litri)
         {
-            double galloni = (litri * 3.785);
+            const double GalloniXLitro = 3.785;
+            double galloni = (litri * GalloniXLitro);
             return galloni;
         }
         

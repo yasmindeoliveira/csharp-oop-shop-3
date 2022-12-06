@@ -15,6 +15,9 @@ try
 
     Console.WriteLine("Contenuto in galloni: " + Acqua.DaLitriAGalloni(1.5));
 
+    Acqua Bottiglia2 = new Acqua("Ginevra", "Acqua Minerale Naturale Oligominerale", 0.22f, 22, 1.5f, 7.33f, "Umbra Celeste");
+    Bottiglia2.Stampa();
+
 }
 catch(ResultCannotBeNegativeException e)
 {
@@ -23,6 +26,8 @@ catch(ResultCannotBeNegativeException e)
 {
     Console.WriteLine(e.Message);
 }
+
+Console.WriteLine("Totale prodotti: " + Prodotto.GetContatore());
 
 
 /*
