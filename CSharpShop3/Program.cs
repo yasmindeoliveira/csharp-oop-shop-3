@@ -4,10 +4,17 @@ using CSharpShop3.CustomException;
 
 try
 {
-    Acqua Bottiglia1 = new Acqua("Sant'Anna", "Acqua Minerale", 0.20f, 22, 1.5f, 15f, "Sant'Anna");
+    Acqua Bottiglia1 = new Acqua("Sant'Anna", "Acqua Minerale", 0.20f, 22, 1.5f, 6.9f, "Sant'Anna");
     Bottiglia1.Stampa();
 
-}catch(ResultCannotBeNegativeException e)
+    Bottiglia1.BeviAcqua(1);
+    Bottiglia1.Stampa();
+
+    Bottiglia1.RiempiBottiglia(0.7f);
+    Bottiglia1.Stampa();
+
+}
+catch(ResultCannotBeNegativeException e)
 {
     Console.WriteLine(e.Message);
 }catch(OverflowException e)
