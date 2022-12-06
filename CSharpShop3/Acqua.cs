@@ -89,10 +89,7 @@ namespace CSharpShop3
             }
             else
             {
-                // Exception "Hai superato la capienza massima della bottiglia
-
-                Console.WriteLine("La bottiglia è stata riempita al massimo.");
-                this.litri = this.maxCapienza;
+                throw new OverflowException("Hai superato la capienza massima della bottiglia");
             }
              
         }
