@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CSharpShop3.CustomException
 {
-    internal class ResultCannotBeNegativeException
+    internal class ResultCannotBeNegativeException : Exception
     {
+        public ResultCannotBeNegativeException(string message) : base(message) { }
     }
 }

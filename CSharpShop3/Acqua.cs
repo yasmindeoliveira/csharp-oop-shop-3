@@ -44,10 +44,22 @@ namespace CSharpShop3
         // SETTERS
         public void SetLitri(double litri)
         {
+            if (this.litri < 0)
+            {
+                throw new ResultCannotBeNegativeException("Non puoi inserire un valore di liri negativo.");
+            }
             this.litri = litri;
         }
         public void SetPH(double pH)
         {
+            if (this.pH < 0)
+            {
+                throw new ResultCannotBeNegativeException("Non puoi inserire un pH negativo.");
+            }
+            if(this.pH > 14)
+            {
+                throw new OverflowException("Il pH non può superare il valore 14");
+            }
             this.pH = pH;
         }
         public void SetSorgente(string sorgente)
@@ -110,6 +122,17 @@ namespace CSharpShop3
             Console.WriteLine("Sorgente: " + GetSorgente());
             Console.WriteLine();
 
+        }
+
+        // METODO STATICO
+
+        public static class ConvertitoreLitri
+        {
+            public static double DaLitriAGalloni(double litri)
+            {
+                double galloni = (litri * 3.785);
+                return galloni;
+            }
         }
 
 
