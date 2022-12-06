@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CSharpShop3.CustomException;
 
 namespace CSharpShop3
 {
@@ -69,7 +70,7 @@ namespace CSharpShop3
             }
             else
             {
-                Console.WriteLine("Non puoi bere acqua che non c'è.");
+                throw new ResultCannotBeNegativeException("Non puoi bere acqua che non c'è.");
             }
 
             return this.litri;
@@ -77,16 +78,23 @@ namespace CSharpShop3
 
         public void RiempiBottiglia(float litriDaRiempire)
         {
-            if (this.maxCapienza - this.litri >= litriDaRiempire) // litriDaRiempiere <= this.maxCapienza - this.litri
+            if (litriDaRiempire < 0)
+            {
+                throw new ResultCannotBeNegativeException("Non puoi riempire negativamente la bottiglia.");
+            }
+
+            if (this.maxCapienza - this.litri >= litriDaRiempire) // litriDaRiempiere <= this.maxCapienza - this.litri 
             {
                 this.litri += Math.Round(litriDaRiempire, 2);
             }
             else
             {
+                // Exception "Hai superato la capienza massima della bottiglia
+
                 Console.WriteLine("La bottiglia è stata riempita al massimo.");
                 this.litri = this.maxCapienza;
             }
-
+             
         }
 
         public void SvuotaBottiglia()
